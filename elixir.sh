@@ -1,20 +1,31 @@
 TOOLS=$HOME/tools/
+KERL_BUILDS=$HOME/.kerl/builds/
 
-function elixir_use {
-  export ELIXIR_VERSION=$1
-  PATH="$HOME/tools/$1/bin:$PATH"
-  export PATH
-}
+PATH="$HOME/.erlenv/bin":$PATH
 
-function elixir_list {
-  (cd $TOOLS ; ls -d Elixir-*)
-}
+test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
+kiex use 1.1.1
 
-function elixir_version {
+function ex_version {
   if [ -n "$ELIXIR_VERSION" ]; then
-    echo ":$ELIXIR_VERSION"
+    echo ":ex-$ELIXIR_VERSION"
   fi
 }
 
-# Default environment
-elixir_use Elixir-1.0.5
+
+function erl_use {
+  export ERLANG_VERSION=$1  
+  if [ "$ERLANG_VERSION" != "system" ]; then
+    PATH="$KERL_BUILDS/$ERLANG_VERSION/release_$ERLANG_VERSION/bin:$PATH"
+  fi
+}
+
+function erl_list {
+  (cd $KERL_BUILDS ; ls)
+}
+
+function erl_version {
+  if [ -n "$ERLANG_VERSION" ]; then
+    echo ":erl-$ERLANG_VERSION"
+  fi
+}
