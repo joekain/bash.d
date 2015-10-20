@@ -1,6 +1,30 @@
-alias proj='go_to_project'
+alias proj='do_project'
+
+function do_project() {
+  edit="true"
+
+  for var in "$@" ; do
+    case "$var" in
+      -ne)
+        edit="false"
+        ;;
+      *)
+        go_to_project $var
+        ;;
+    esac
+  done
+
+  if [ $edit == "true" ]; then
+    $EDITOR .
+  fi
+}
+
 function go_to_project() {
-  cd ~/Documents/Projects/$1
+  if [ -d ~/Documents/Projects/$1 ]; then
+    cd ~/Documents/Projects/$1
+  else
+    cd $(find ~/Documents/Projects -type d -name ${1}'*' -print -quit)
+  fi
 }
 
 function mount_rust {
