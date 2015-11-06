@@ -43,3 +43,9 @@ function mount_c {
   fi
   sudo mount -t nfs -o resvport,soft $SERVER:/home/joseph/src/c ~/Documents/Projects/c
 }
+
+function orth() {
+  cd ~/Documents/Projects/elixir/orthrus
+  $EDITOR orthrus
+  $EDITOR doc
+}
