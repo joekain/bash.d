@@ -4,7 +4,7 @@ KERL_BUILDS=$HOME/.kerl/builds/
 PATH="$HOME/.erlenv/bin":$PATH
 
 test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
-kiex use 1.1.1
+kiex use 1.2.2
 
 function ex_version {
   if [ -n "$ELIXIR_VERSION" ]; then
@@ -14,7 +14,7 @@ function ex_version {
 
 
 function erl_use {
-  export ERLANG_VERSION=$1  
+  export ERLANG_VERSION=$1
   if [ "$ERLANG_VERSION" != "system" ]; then
     PATH="$KERL_BUILDS/$ERLANG_VERSION/release_$ERLANG_VERSION/bin:$PATH"
   fi
