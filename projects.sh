@@ -45,7 +45,18 @@ function mount_c {
 }
 
 function orth() {
-  cd ~/Documents/Projects/elixir/orthrus
-  $EDITOR orthrus
-  $EDITOR doc
+  cd ~/Documents/Projects/elixir/orthrus/orthrus
+  $EDITOR .
+}
+
+function book() {
+  cd ~/Documents/Projects/elixir/idiomatic_elixir
+  $EDITOR .
+}
+
+function itus() {
+  cd ~/Documents/Projects/ITUS
+  VirtualBox --startvm Ubuntu &
+  sleep 10
+  emacs &
 }
