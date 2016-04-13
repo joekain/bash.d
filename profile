@@ -10,4 +10,8 @@ for script in ~/.bash.d/*.sh ; do
   . $script
 done
 
-PS1="${RED}jkain-mbp${LIGHT_BLUE}\$(ex_version)${GRAY}\$(erl_version)${GREEN}\$(parse_git_branch)${DEFAULT} \w\n$ "
+if [ -z "$PROMPT_NAME" ] ; then
+   PROMPT_NAME="jkain-mbp"
+fi
+
+PS1="${RED}${PROMPT_NAME}${LIGHT_BLUE}\$(ex_version)${GRAY}\$(erl_version)${GREEN}\$(parse_git_branch)${DEFAULT} \w\n$ "

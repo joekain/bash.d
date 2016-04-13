@@ -3,8 +3,9 @@ KERL_BUILDS=$HOME/.kerl/builds/
 
 PATH="$HOME/.erlenv/bin":$PATH
 
-test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
-kiex use 1.2.2
+test -s "$HOME/.kiex/scripts/kiex" &&    \
+    source "$HOME/.kiex/scripts/kiex" && \
+    kiex use 1.2.2
 
 function ex_version {
   if [ -n "$ELIXIR_VERSION" ]; then
